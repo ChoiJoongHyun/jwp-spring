@@ -10,22 +10,20 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
-import core.jdbc.ConnectionManager;
 
-@WebListener
-public class ContextLoaderListener implements ServletContextListener {
+public class ContextLoaderListener  {
 	private static final Logger logger = LoggerFactory.getLogger(ContextLoaderListener.class);
 	
-	@Override
-	public void contextInitialized(ServletContextEvent sce) {
-		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-		populator.addScript(new ClassPathResource("jwp.sql"));
-		DatabasePopulatorUtils.execute(populator, ConnectionManager.getDataSource());
-		
-		logger.info("Completed Load ServletContext!");
-	}
-
-	@Override
-	public void contextDestroyed(ServletContextEvent sce) {
-	}
+//	@Override
+//	public void contextInitialized(ServletContextEvent sce) {
+//		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+//		populator.addScript(new ClassPathResource("jwp.sql"));
+//		DatabasePopulatorUtils.execute(populator, ConnectionManager.getDataSource());
+//		
+//		logger.info("Completed Load ServletContext!");
+//	}
+//
+//	@Override
+//	public void contextDestroyed(ServletContextEvent sce) {
+//	}
 }
